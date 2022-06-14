@@ -1,0 +1,25 @@
+$theme-colors: (
+  'primary': #FFC700,
+);
+
+$body-bg: #525252;
+$body-color: #000;
+
+@import '~bootstrap/scss/bootstrap.scss';
+
+
+h1, h2, h3, h4, h5 {
+  font-weight:  700;
+  margin-bottom: 0;
+}
+
+h6 {
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: unset;
+}
+

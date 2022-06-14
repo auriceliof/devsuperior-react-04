@@ -1,0 +1,11 @@
+.navbar-nav-container {
+    display: flex;
+    justify-content: space-between;
+    height: 68px;
+    padding: 18px;
+}
+
+.btn-navbar {
+    display:  none;
+}
+
