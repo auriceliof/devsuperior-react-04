@@ -55,6 +55,12 @@
         padding-bottom: 0;
     }
 
+    .product-crud-card-top-container {
+        border-bottom: 0;
+        width: 200px;
+        border-right: 1px solid #E1E1E1;
+    }
+
     .product-crud-card-buttons-container {
         flex-direction: column-reverse;
         justify-content: center;
@@ -67,11 +73,6 @@
 
     .product-crud-card-button {
         width: 140px;
-    }
-
-    .product-crud-card-top-container {
-        border-bottom: 0;
-        border-right: 1px solid #E1E1E1;
     }
 
     .product-crud-card-description {
