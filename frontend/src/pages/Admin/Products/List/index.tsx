@@ -31,7 +31,6 @@ const List = () => {
       });
   }
 
-
   return (
     <div className="product-crud-container">
       <div className="produc-crud-bar-container">
