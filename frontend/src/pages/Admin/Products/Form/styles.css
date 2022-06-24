@@ -45,7 +45,7 @@
     }
 }
 
-.produc-crud-select__control {
+.product-crud-select__control {
     border-radius: 10px !important;
     font-size: 1em;
     letter-spacing: -0.015em;
@@ -53,11 +53,11 @@
     height: 50px;
 }
 
-.produc-crud-select__placeholder {
+.product-crud-select__placeholder {
     color: #9E9E9E !important;
 }
 
-.produc-crud-select__indicator-separator {
+.product-crud-select__indicator-separator {
     display: none;
 }
 

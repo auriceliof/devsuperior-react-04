@@ -1,5 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 import { useEffect, useState } from 'react';
+import CurrencyInput from 'react-currency-input-field';
 import { useForm, Controller } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router-dom';
 import Select from 'react-select';
@@ -13,7 +14,6 @@ type UrlParams = {
 };
 
 const Form = () => {
-
   const { productId } = useParams<UrlParams>();
 
   const isEditing = productId !== 'create';
@@ -31,10 +31,9 @@ const Form = () => {
   } = useForm<Product>();
 
   useEffect(() => {
-    requestBackend({url: '/categories'})
-    .then(response => {
+    requestBackend({ url: '/categories' }).then((response) => {
       setSelectCategories(response.data.content);
-    })
+    });
   }, []);
 
   useEffect(() => {
@@ -52,10 +51,15 @@ const Form = () => {
   }, [isEditing, productId, setValue]);
 
   const onSubmit = (formData: Product) => {
+    const data = {
+      ...formData,
+      price: String(formData.price).replace(',', '.'),
+    };
+
     const config: AxiosRequestConfig = {
       method: isEditing ? 'PUT' : 'POST',
       url: isEditing ? `/products/${productId}` : '/products',
-      data: formData,
+      data,
       withCredentials: true,
     };
 
@@ -91,41 +95,49 @@ const Form = () => {
                 <div className="invalid-feedback d-block">
                   {errors.name?.message}
                 </div>
-              </div> 
-              
+              </div>
+
               <div className="margin-bottom-30">
-                <Controller 
+                <Controller
                   name="categories"
-                  rules={{ required: true}}
+                  rules={{ required: true }}
                   control={control}
                   render={({ field }) => (
-                    <Select {...field}
+                    <Select
+                      {...field}
                       options={selectCategories}
-                      classNamePrefix="produc-crud-select"
+                      classNamePrefix="product-crud-select"
                       isMulti
                       getOptionLabel={(category: Category) => category.name}
-                      getOptionValue={(category: Category) => String(category.id)}
+                      getOptionValue={(category: Category) =>
+                        String(category.id)
+                      }
                     />
                   )}
                 />
                 {errors.categories && (
-                   <div className="invalid-feedback d-block">
-                   Campo obrigatório
-                 </div>
+                  <div className="invalid-feedback d-block">
+                    Campo obrigatório
+                  </div>
                 )}
               </div>
 
               <div className="margin-bottom-30">
-                <input
-                  {...register('price', {
-                    required: 'Campo obrigatório',
-                  })}
-                  type="text"
-                  className={`form-control base-input ${
-                    errors.name ? 'is-invalid' : ''
-                  }`}
-                  placeholder="Preço"
+                <Controller
                   name="price"
+                  rules={{ required: 'Campo obrigatório' }}
+                  control={control}
+                  render={({ field }) => (
+                    <CurrencyInput
+                      placeholder="Preço"
+                      className={`form-control base-input 
+                      ${errors.price ? 'is-invalid' : ''}
+                      `}
+                      disableGroupSeparators={true}
+                      value={field.value}
+                      onValueChange={field.onChange}
+                    />
+                  )}
                 />
                 <div className="invalid-feedback d-block">
                   {errors.price?.message}
@@ -133,13 +145,13 @@ const Form = () => {
               </div>
 
               <div className="margin-bottom-30">
-              <input
+                <input
                   {...register('imgUrl', {
                     required: 'Campo obrigatório',
                     pattern: {
                       value: /^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/gm,
-                      message: 'Deve ser una URL válida'
-                    }
+                      message: 'Deve ser una URL válida',
+                    },
                   })}
                   type="text"
                   className={`form-control base-input ${
@@ -151,9 +163,8 @@ const Form = () => {
                 <div className="invalid-feedback d-block">
                   {errors.imgUrl?.message}
                 </div>
-              </div> 
-
-            </div>             
+              </div>
+            </div>
 
             <div className="col-lg-6">
               <div>
