@@ -8,29 +8,35 @@ import { SpringPage } from 'types/vendor/spring';
 import { requestBackend } from 'utils/requests';
 import './styles.css';
 
+type ControlCompnentsData = {
+  activePage: number;
+};
 const List = () => {
-
   const [page, setPage] = useState<SpringPage<Product>>();
 
-  useEffect(() => {
-    getProducts(0);
-  }, []);
+  const [controlCompnentsData, setControlCompnentsData] =
+    useState<ControlCompnentsData>({
+      activePage: 0,
+    });
 
-  const getProducts = ( pageNumber: number) => {
-    const config: AxiosRequestConfig = {
+  const handlePageChange = (pageNumber : number) => {
+    setControlCompnentsData({activePage : pageNumber})
+  }
+    
+  useEffect(() => {
+     const config: AxiosRequestConfig = {
       method: 'GET',
-      url: "/products",
+      url: '/products',
       params: {
-        page: pageNumber,
+        page: controlCompnentsData.activePage,
         size: 3,
       },
     };
 
-    requestBackend(config)
-      .then((response) => {
-        setPage(response.data);
-      });
-  }
+    requestBackend(config).then((response) => {
+      setPage(response.data);
+    });
+  }, [controlCompnentsData]);
 
   return (
     <div className="product-crud-container">
@@ -43,22 +49,21 @@ const List = () => {
         <div className="base-card product-filter-container">Search bar</div>
       </div>
       <div className="row">
-
-        {page?.content.map(product => (
+        {page?.content.map((product) => (
           <div key={product.id} className="col-sm-6 col-md-12">
-            <ProductCrudCard product={product} 
-              onDelete={() => getProducts(page.number)}/>
+            <ProductCrudCard
+              product={product}
+              onDelete={() => {}}
+            />
           </div>
         ))}
-
       </div>
 
-      <Pagination 
-        pageCount={ (page) ? page.totalPages : 0 }
+      <Pagination
+        pageCount={page ? page.totalPages : 0}
         range={3}
-        onChange={getProducts}
+        onChange={handlePageChange}
       />
-      
     </div>
   );
 };
