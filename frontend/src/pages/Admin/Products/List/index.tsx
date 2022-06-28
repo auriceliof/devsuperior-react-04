@@ -1,7 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 import Pagination from 'components/Pagination';
 import ProductCrudCard from 'pages/Admin/Products/ProductCrudCard';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Product } from 'types/product';
 import { SpringPage } from 'types/vendor/spring';
@@ -22,9 +22,9 @@ const List = () => {
   const handlePageChange = (pageNumber : number) => {
     setControlCompnentsData({activePage : pageNumber})
   }
-    
-  useEffect(() => {
-     const config: AxiosRequestConfig = {
+  
+  const getProducts = useCallback (() => {
+    const config: AxiosRequestConfig = {
       method: 'GET',
       url: '/products',
       params: {
@@ -36,7 +36,11 @@ const List = () => {
     requestBackend(config).then((response) => {
       setPage(response.data);
     });
-  }, [controlCompnentsData]);
+  }, [controlCompnentsData])
+
+  useEffect(() => {
+     getProducts();
+  }, [getProducts]);
 
   return (
     <div className="product-crud-container">
@@ -53,7 +57,7 @@ const List = () => {
           <div key={product.id} className="col-sm-6 col-md-12">
             <ProductCrudCard
               product={product}
-              onDelete={() => {}}
+              onDelete={getProducts}
             />
           </div>
         ))}
