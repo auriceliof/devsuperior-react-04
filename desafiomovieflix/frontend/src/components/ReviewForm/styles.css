@@ -1,0 +1,53 @@
+.review-card {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.base-input {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.base-input input {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.btn-review {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+    .review-card {
+      padding: 30px;
+    }
+
+    .base-input input {
+        font-size: 1.5em
+    }
+
+    .btn-review {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+}
+  
+@media (min-width: 1200px) {
+    .review-card {
+        padding: 30px;
+      }
+  
+      .base-input {
+          margin-bottom: 30px;
+      }
+  
+      .base-input input {
+          font-size: 1.5em
+      }  
+}
+

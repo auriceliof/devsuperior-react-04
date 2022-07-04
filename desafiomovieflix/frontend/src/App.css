@@ -3,3 +3,21 @@
 * {
     font-family: 'Open Sans';
 }
+
+.base-card {
+    background-color: #6C6C6C;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.base-input {
+    border-radius: 4px;
+    font-size: 1em;
+    color: #6C6C6C;
+    border: 1px solid #E1E1E1;
+    height: 50px;
+}
+
+.base-input::placeholder {
+    color: #263238
+}

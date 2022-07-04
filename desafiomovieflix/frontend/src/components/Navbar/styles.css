@@ -1,11 +1,30 @@
 .navbar-nav-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 68px;
     padding: 18px;
 }
 
-.btn-navbar {
-    display:  none;
+.navbar-nav-container h2 {
+    margin-left: 10px;
 }
 
+.nav-logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+@media (min-width: 576px) {
+    .navbar-nav-container h2 {
+        margin-left: 40px;
+    } 
+}

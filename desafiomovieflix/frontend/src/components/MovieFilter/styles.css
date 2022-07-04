@@ -1,0 +1,18 @@
+.movie-filter-container {
+  height: 60px;
+  padding: 5px 20px;
+}
+
+.movie-filter-category {
+  display: flex;
+}
+
+.movie-filter-category-select {
+  flex: 1;
+  height: 50px;
+  background-color: inherit;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  color: #fff;
+  padding: 12px;
+}

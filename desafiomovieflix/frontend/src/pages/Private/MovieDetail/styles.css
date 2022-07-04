@@ -1,0 +1,50 @@
+.moviedetail-container {
+    font-size: 24px;
+    color: #FFF;
+    padding: 20px;
+}
+
+.moviedetail-container h1{
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+@media (min-width: 576px) {
+    .moviedetail-container h1{
+        font-size: 30px;
+    }
+
+    .moviedetail-container {
+        padding: 40px;
+    }
+}
+  
+@media (min-width: 768px) {
+    .moviedetail-container h1{
+        font-size: 40px;
+    }
+
+    .moviedetail-container {
+        padding: 60px;
+    }
+}
+
+@media (min-width: 1200px){
+    .moviedetail-container h1{
+        font-size: 48px;
+    }
+
+    .moviedetail-container {
+        padding: 70px;
+    }
+}    
+
+@media (min-width: 1400px){
+    .moviedetail-container h1{
+        font-size: 55px;
+    }
+
+    .moviedetail-container {
+        padding: 80px;
+    }
+}

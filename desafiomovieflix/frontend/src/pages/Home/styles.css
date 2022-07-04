@@ -1,0 +1,52 @@
+.home-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 35px;
+}
+
+.home-card-movie {
+    display: none;
+}
+
+@media (min-width: 1200px){
+    .home-container {
+        padding: 50px;
+    }
+
+    .home-card-movie {        
+        display: flex;
+        flex-direction: column;
+        color: #FFF;
+        margin-top: 40px;
+        width: 500px;
+    }
+    
+    .home-card-movie h1 {
+        font-size: 2em;
+        letter-spacing: 0.085em;
+        margin-left: 30px;
+    }
+    
+    .home-card-movie p {
+        font-size: 1em;
+        width: 320px;
+        letter-spacing: -0.015em;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        margin-left: 30px;
+    }
+}
+
+@media (min-width: 1400px){
+    .home-container {
+        padding: 70px;
+    }
+
+    .home-card-movie h1 {
+        font-size: 2.8em;
+    }
+    
+    .home-card-movie p {
+        font-size: 1.4em;
+    }
+}

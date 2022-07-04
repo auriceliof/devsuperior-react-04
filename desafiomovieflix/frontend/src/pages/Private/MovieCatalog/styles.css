@@ -1,0 +1,38 @@
+.moviecatalog-container {
+    padding: 15px;
+    color: #FFF;
+    margin-left: 10px;
+}
+
+.moviecatalog-card h1 {
+    font-size: 1.3em;
+    letter-spacing: 0.085em;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.moviecatalog-content h5 {
+    font-size: 1.2em;
+    font-weight: 400;
+    letter-spacing: 0.085em;
+    margin-bottom: 12px;  
+}
+
+.moviecatalog-result {
+    display: inherit;
+}
+
+@media (min-width: 576px) {
+    .moviecatalog-container {
+        margin: 30px 0 0 40px;
+    } 
+
+    .moviecatalog-card h1 {
+        font-size: 2em;
+    }
+
+    .moviecatalog-content h5 {
+        font-size: 1.6em;
+    }
+}
+
