@@ -1,0 +1,28 @@
+.movielist-image img {
+  margin-top: 25px;
+  width: 100%;
+}
+
+.movielist-details {
+  padding: 10px;
+  margin-left: 5px;
+}
+
+.movielist-title {
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: -0.015em;
+}
+
+.movielist-year {
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.015em;
+  color: #ffc700;
+}
+
+.movielist-description {
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: -0.015em;
+}
