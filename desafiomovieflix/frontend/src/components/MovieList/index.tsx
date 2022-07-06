@@ -11,9 +11,9 @@ const MovieList = ( { movieg } : Props ) => {
         <img src={movieg.imgUrl} alt={movieg.title} />
       </div>
       <div className="movielist-details">
-        <h4 className="movielist-title">{movieg.title}</h4>
-        <h5 className="movielist-year">{movieg.year}</h5>
-        <p className="movielist-description">{movieg.subTitle}</p>
+        <div className="movielist-title">{movieg.title}</div>
+        <div className="movielist-year">{movieg.year}</div>
+        <div className="movielist-description">{movieg.subTitle}</div>
       </div>
     </div>
   );

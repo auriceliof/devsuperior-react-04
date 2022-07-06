@@ -1,3 +1,7 @@
+.movielist-container {
+  margin-bottom: 20px;
+}
+
 .movielist-image img {
   margin-top: 25px;
   width: 100%;
