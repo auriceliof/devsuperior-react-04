@@ -1,18 +1,19 @@
-import './styles.css'
+import { MovieG } from 'types/movieg';
+import './styles.css';
 
-const MovieList = () => {
+type Props ={
+  movieg: MovieG
+}
+const MovieList = ( { movieg } : Props ) => {
   return (
     <div className="base-card movielist-container">
       <div className="movielist-image">
-        <img
-          src="https://image.tmdb.org/t/p/w533_and_h300_bestv2/wu1uilmhM4TdluKi2ytfz8gidHf.jpg"
-          alt="Bob Esponja"
-        />
+        <img src={movieg.imgUrl} alt={movieg.title} />
       </div>
       <div className="movielist-details">
-        <h4 className="movielist-title">Bob Esponja</h4>
-        <h5 className="movielist-year">2020</h5>
-        <p className="movielist-description">O Incrível Resgate.</p>
+        <h4 className="movielist-title">{movieg.title}</h4>
+        <h5 className="movielist-year">{movieg.year}</h5>
+        <p className="movielist-description">{movieg.subTitle}</p>
       </div>
     </div>
   );
