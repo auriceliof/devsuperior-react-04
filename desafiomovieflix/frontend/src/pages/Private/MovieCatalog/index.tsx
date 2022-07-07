@@ -36,9 +36,9 @@ const MovieCatalog = () => {
           <MovieFilter />
         </p>
       </div>
-      <div>
+      <div className="row">
         {movie?.content.map( movie => (
-          <div key={movie.id} className="col-sm-6 col-md-12"> 
+          <div key={movie.id} className="col-sm-6 col-xl-3"> 
             <MovieList movieg={movie} />
           </div>
         ))}

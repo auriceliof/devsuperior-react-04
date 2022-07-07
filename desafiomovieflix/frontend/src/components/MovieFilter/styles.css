@@ -16,3 +16,9 @@
   color: #fff;
   padding: 12px;
 }
+
+@media(min-width: 768px) {
+  .movie-filter-container {
+    margin: 0px 10px;
+  }
+}
