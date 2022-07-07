@@ -3,7 +3,8 @@ import './styles.css';
 
 type Props ={
   movieg: MovieG
-}
+};
+
 const MovieList = ( { movieg } : Props ) => {
   return (
     <div className="base-card movielist-container">

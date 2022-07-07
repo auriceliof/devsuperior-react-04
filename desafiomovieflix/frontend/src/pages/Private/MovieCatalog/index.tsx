@@ -32,9 +32,7 @@ const MovieCatalog = () => {
   return (
     <div className="moviecatalog-container">
       <div className="moviecatalog-card">
-        <p>
           <MovieFilter />
-        </p>
       </div>
       <div className="row">
         {movie?.content.map( movie => (

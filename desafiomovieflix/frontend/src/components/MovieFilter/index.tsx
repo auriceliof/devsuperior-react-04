@@ -1,17 +1,16 @@
-import './styles.css'
+import './styles.css';
 
 const MovieFilter = () => {
-
-    return (
-        <div className="base-card movie-filter-container">
-            <form action="" className="movie-filter-form">
-                <div className="movie-filter-category">
-                    <select className="movie-filter-category-select" name="" id="">
-                        <option value="">Aventura</option>
-                    </select>                    
-                </div>
-            </form>
+  return (
+    <div className="base-card moviefilter-container">
+      <form action="" className="moviefilter-form">
+        <div className="moviefilter-category">
+          <select className="moviefilter-category-select" name="" id="">
+            <option value="">Aventura</option>
+          </select>
         </div>
-    )
-}
+      </form>
+    </div>
+  );
+};
 export default MovieFilter;

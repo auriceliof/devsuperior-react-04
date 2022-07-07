@@ -1,13 +1,14 @@
-.movie-filter-container {
+.moviefilter-container {
   height: 60px;
   padding: 5px 20px;
+  margin-bottom: 20px;
 }
 
-.movie-filter-category {
+.moviefilter-category {
   display: flex;
 }
 
-.movie-filter-category-select {
+.moviefilter-category-select {
   flex: 1;
   height: 50px;
   background-color: inherit;
@@ -18,7 +19,11 @@
 }
 
 @media(min-width: 768px) {
-  .movie-filter-container {
+  .moviefilter-container {
     margin: 0px 10px;
+  }
+
+  .moviefilter-container {
+    margin-bottom: 20px;
   }
 }
