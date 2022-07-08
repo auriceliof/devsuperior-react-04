@@ -2,20 +2,32 @@
   height: 60px;
   padding: 5px 20px;
   margin-bottom: 20px;
+  color: #000;
 }
 
-.moviefilter-category {
-  display: flex;
-}
-
-.moviefilter-category-select {
-  flex: 1;
+.moviefilter-select__control {
   height: 50px;
-  background-color: inherit;
-  border: 1px solid #e1e1e1;
-  border-radius: 4px;
-  color: #fff;
-  padding: 12px;
+  font-size: 1em;
+  background-color: inherit !important;
+  border: 1px solid #e1e1e1 !important;
+  border-radius: 4px !important;
+  letter-spacing: -0.015em !important;
+}
+
+.moviefilter-select__single-value {
+  color: #FFF !important;
+}
+
+.moviefilter-select__placeholder {
+  color: #9E9E9E !important;
+}
+
+.moviefilter-select__indicators{
+  background-color: inherit !important;
+}
+
+.moviefilter-select__indicator-separator {
+  display: none;
 }
 
 @media(min-width: 768px) {
