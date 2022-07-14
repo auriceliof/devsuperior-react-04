@@ -1,6 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 import MovieFilter, { MovieFilterData } from 'components/MovieFilter';
 import MovieList from 'components/MovieList';
+import Pagination from 'components/Pagination';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MovieG } from 'types/movieg';
@@ -54,6 +55,9 @@ const MovieCatalog = () => {
           </div>
         ))}
       </div>
+
+      <Pagination />
+      
       <div className="moviecatalog-content">
         <Link to="/movies/1">
           <h5>Acessar /movies/1</h5>
