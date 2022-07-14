@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from 'axios';
-import MovieFilter from 'components/MovieFilter';
+import MovieFilter, { MovieFilterData } from 'components/MovieFilter';
 import MovieList from 'components/MovieList';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -8,9 +8,21 @@ import { SpringPage } from 'types/vendor/spring';
 import { requestBackend } from 'utils/requests';
 import './styles.css';
 
+type ControlComponentsData = {
+  filterData: MovieFilterData;
+}
+
 const MovieCatalog = () => {
  
   const [movie, setMovie] = useState<SpringPage<MovieG>>();
+
+  const [controlComponentsData, setControlComponentsData] = useState<ControlComponentsData>({
+    filterData: { genre: null }
+  });
+
+  const handleSubmitFilter = ( data : MovieFilterData) => {
+    setControlComponentsData({filterData: data})
+  }
 
   useEffect (() => {
     const config: AxiosRequestConfig = {
@@ -20,6 +32,7 @@ const MovieCatalog = () => {
       params: {
         page: 0,
         size: 4,
+        genreId: controlComponentsData.filterData.genre?.id
       }
     } 
     
@@ -27,12 +40,12 @@ const MovieCatalog = () => {
     .then((response) => {
       setMovie(response.data);
     });    
-  }, []);
+  }, [controlComponentsData.filterData.genre?.id]);
 
   return (
     <div className="moviecatalog-container">
       <div className="moviecatalog-card">
-          <MovieFilter />
+          <MovieFilter onSubmitFilter={handleSubmitFilter} />
       </div>
       <div className="row">
         {movie?.content.map( movie => (

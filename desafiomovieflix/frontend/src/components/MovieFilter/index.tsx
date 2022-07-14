@@ -1,16 +1,40 @@
 import { AxiosRequestConfig } from 'axios';
 import { useEffect, useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import Select from 'react-select';
 import { Genre } from 'types/genre'
 import { BASE_URL, requestBackend } from 'utils/requests';
 import './styles.css';
 
-const MovieFilter = () => {
+  export type MovieFilterData = {
+    genre: Genre | null;
+  }
+
+  type Props = {
+    onSubmitFilter: (data: MovieFilterData) => void;
+  }
+  
+const MovieFilter = ( { onSubmitFilter } : Props ) => {
  
-  const [ selectGenre, setSelectGenre ] = useState<Genre[]>([]);
+  const [ selectGenre, setSelectGenre, ] = useState<Genre[]>([]);
+
+  const { handleSubmit, getValues, setValue, control, } = useForm<MovieFilterData>();
+
+  const onSubmit = (formData: MovieFilterData) => {
+    onSubmitFilter(formData);
+  };
+
+  const handleChangeGenre = (value : Genre) => {
+    setValue('genre', value);
+
+    const obj: MovieFilterData = {
+      genre : getValues('genre')
+    }
+
+    onSubmitFilter(obj);
+  }
 
   useEffect( () => {
-
     const config: AxiosRequestConfig = {
       url: `${BASE_URL}/genres`,
       withCredentials: true,
@@ -24,13 +48,23 @@ const MovieFilter = () => {
 
   return (
     <div className="base-card moviefilter-container">
-      <form action="" className="moviefilter-form">
+      <form onSubmit={handleSubmit(onSubmit)} className="moviefilter-form">
         <div className="moviefilter-category-">
-          <Select 
-            options={selectGenre} 
-            classNamePrefix="moviefilter-select"
-            getOptionLabel={ ( genre: Genre ) => genre.name }
-            getOptionValue={ ( genre: Genre ) => String(genre.id) }
+          <Controller 
+            name="genre"
+            control={ control }
+            render={({ field }) => (
+              <Select
+                {...field} 
+                options={selectGenre}
+                isClearable
+                placeholder="Gênero"
+                classNamePrefix="moviefilter-select"
+                onChange={(value) => handleChangeGenre (value as Genre)}
+                getOptionLabel={ ( genre: Genre ) => genre.name }
+                getOptionValue={ ( genre: Genre ) => String(genre.id) }
+              />
+            )}          
           />
         </div>
       </form>
