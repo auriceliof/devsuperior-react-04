@@ -4,6 +4,7 @@ import MovieList from 'components/MovieList';
 import Pagination from 'components/Pagination';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Movie } from 'types/movie';
 import { MovieG } from 'types/movieg';
 import { SpringPage } from 'types/vendor/spring';
 import { requestBackend } from 'utils/requests';
@@ -14,6 +15,8 @@ type ControlComponentsData = {
 }
 
 const MovieCatalog = () => {
+
+  const [page, setPage] = useState<SpringPage<Movie>>();
  
   const [movie, setMovie] = useState<SpringPage<MovieG>>();
 
@@ -25,13 +28,13 @@ const MovieCatalog = () => {
     setControlComponentsData({filterData: data})
   }
 
-  useEffect (() => {
+  const getMovies = ( pagenNumber : number ) => {
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: "/movies",
       withCredentials: true,
       params: {
-        page: 0,
+        page: pagenNumber,
         size: 4,
         genreId: controlComponentsData.filterData.genre?.id
       }
@@ -40,8 +43,13 @@ const MovieCatalog = () => {
     requestBackend(config)
     .then((response) => {
       setMovie(response.data);
-    });    
-  }, [controlComponentsData.filterData.genre?.id]);
+      setPage(response.data)
+    });
+  }
+
+  useEffect (() => {
+    getMovies(0);
+  }, []);
 
   return (
     <div className="moviecatalog-container">
@@ -56,7 +64,11 @@ const MovieCatalog = () => {
         ))}
       </div>
 
-      <Pagination />
+      <Pagination 
+        pageCount={ (page) ? page.totalPages : 0}
+        range={3}
+        onChange={getMovies}
+      />
       
       <div className="moviecatalog-content">
         <Link to="/movies/1">
