@@ -2,7 +2,7 @@ import { AxiosRequestConfig } from 'axios';
 import MovieFilter, { MovieFilterData } from 'components/MovieFilter';
 import MovieList from 'components/MovieList';
 import Pagination from 'components/Pagination';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Movie } from 'types/movie';
 import { MovieG } from 'types/movieg';
@@ -28,7 +28,7 @@ const MovieCatalog = () => {
     setControlComponentsData({filterData: data})
   }
 
-  const getMovies = ( pagenNumber : number ) => {
+  const getMovies = useCallback (( pagenNumber : number ) => {
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: "/movies",
@@ -45,11 +45,11 @@ const MovieCatalog = () => {
       setMovie(response.data);
       setPage(response.data)
     });
-  }
+  }, [controlComponentsData])
 
   useEffect (() => {
     getMovies(0);
-  }, []);
+  }, [getMovies]);
 
   return (
     <div className="moviecatalog-container">
