@@ -53,13 +53,17 @@ const MovieCatalog = () => {
 
   return (
     <div className="moviecatalog-container">
+
       <div className="moviecatalog-card">
           <MovieFilter onSubmitFilter={handleSubmitFilter} />
       </div>
+      
       <div className="row">
         {movie?.content.map( movie => (
           <div key={movie.id} className="col-sm-6 col-xl-3"> 
-            <MovieList movieg={movie} />
+            <Link to={`/movies/${movie.id}`}>
+              <MovieList movieg={movie} />
+            </Link>
           </div>
         ))}
       </div>
@@ -69,17 +73,7 @@ const MovieCatalog = () => {
         range={3}
         onChange={getMovies}
       />
-      
-      <div className="moviecatalog-content">
-        <Link to="/movies/1">
-          <h5>Acessar /movies/1</h5>
-        </Link>
-      </div>
-      <div className="moviecatalog-content">
-        <Link to="/movies/2">
-          <h5>Acessar /movies/2</h5>
-        </Link>
-      </div>
+
     </div>
   );
 };
