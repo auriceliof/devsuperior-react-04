@@ -30,12 +30,14 @@
 }
 
 @media (min-width: 1200px){
-    .moviedetail-container h1{
-        font-size: 48px;
+    .moviedetail-container {
+        display: flex;
+        justify-content: center;
+        padding: 70px;
     }
 
-    .moviedetail-container {
-        padding: 70px;
+    .moviedetail-container h1{
+        font-size: 48px;
     }
 }    
 

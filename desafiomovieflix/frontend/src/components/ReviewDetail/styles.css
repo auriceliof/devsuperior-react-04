@@ -44,3 +44,47 @@
   text-align: justify;
 }
 
+@media(min-width: 768px) {
+  .reviewdetail-container {
+    padding: 40px;
+  }
+
+  .reviewdetail-title {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  .reviewdetail-year {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .reviewdetail-description {
+    font-size: 24px;
+  }
+}
+
+@media(min-width: 992px) {
+  .reviewdetail-image {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .reviewdetail-image img {
+    max-width: 600px;
+  }
+}
+
+@media(min-width: 1200px) {
+  .reviewdetail-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .reviewdetail-image img {
+    width: 500px;
+    margin-top: 20px;
+    margin-right: 40px;
+    border-radius: 10px 10px;
+  }
+}
