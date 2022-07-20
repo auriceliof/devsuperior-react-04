@@ -19,6 +19,8 @@
 .btn-review {
     margin-top: 20px;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 @media (min-width: 768px) {
@@ -31,8 +33,6 @@
     }
 
     .btn-review {
-        display: flex;
-        justify-content: center;
         width: 100%;
     }
 }
