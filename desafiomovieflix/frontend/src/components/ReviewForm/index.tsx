@@ -1,6 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 import ButtonIcon from 'components/ButtonIcon';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import { Review } from 'types/review';
 import { requestBackend } from 'utils/requests';
 import './styles.css';
@@ -36,6 +37,7 @@ const ReviewForm = ({ movieId, onInsertReview }: Props) => {
 
     requestBackend(config)
       .then((response) => {
+        toast.info('Avaliação salva com sucesso!')
         setValue('text', '');
         onInsertReview(response.data)
         console.log('SUCESSO AO SALVAR', response);
@@ -59,7 +61,7 @@ const ReviewForm = ({ movieId, onInsertReview }: Props) => {
               placeholder="Deixe sua avaliação aqui"
             />
             <div className='invalid-feedback d-block'>
-              {errors.text?.message}
+              {errors.text?.message}              
             </div>
           </div>
           <div className="btn-review">
