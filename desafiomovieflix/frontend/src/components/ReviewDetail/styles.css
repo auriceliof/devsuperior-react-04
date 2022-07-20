@@ -1,0 +1,38 @@
+.reviewdetail-container {
+  margin-bottom: 20px;
+}
+
+.reviewdetail-image img {
+  margin-top: 25px;
+  width: 100%;
+}
+
+.reviewdetail-details {
+  padding: 10px;
+  margin-left: 5px;
+}
+
+.reviewdetail-title {
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: -0.015em;
+}
+
+.reviewdetail-year {
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.015em;
+  color: #ffc700;
+}
+
+.reviewdetail-description {
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: -0.015em;
+}
+
+@media(min-width: 768px) {
+  .reviewdetail-container {
+    margin: 20px 10px 20px 10px;
+  }
+}
