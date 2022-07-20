@@ -1,25 +1,28 @@
 .reviewdetail-container {
   margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .reviewdetail-image img {
-  margin-top: 25px;
   width: 100%;
+  border-radius: 10px 10px 0 0px;
 }
 
 .reviewdetail-details {
-  padding: 10px;
-  margin-left: 5px;
+  margin-top: 20px;
 }
 
 .reviewdetail-title {
   font-size: 20px;
+  font-weight: 700;
   line-height: 27px;
   letter-spacing: -0.015em;
 }
 
 .reviewdetail-year {
   font-size: 16px;
+  font-weight: 700;
   line-height: 22px;
   letter-spacing: -0.015em;
   color: #ffc700;
@@ -27,12 +30,17 @@
 
 .reviewdetail-description {
   font-size: 14px;
+  font-weight: 400;
   line-height: 19px;
   letter-spacing: -0.015em;
+  margin-bottom: 20px;
 }
 
-@media(min-width: 768px) {
-  .reviewdetail-container {
-    margin: 20px 10px 20px 10px;
-  }
+.reviewdetail-synopsis {
+  color: #9E9E9E;
+  border: 1px solid #E1E1E1;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: justify;
 }
+
