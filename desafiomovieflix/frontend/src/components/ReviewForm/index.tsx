@@ -40,10 +40,9 @@ const ReviewForm = ({ movieId, onInsertReview }: Props) => {
         toast.info('Avaliação salva com sucesso!')
         setValue('text', '');
         onInsertReview(response.data)
-        console.log('SUCESSO AO SALVAR', response);
       })
       .catch((error) => {
-        console.log('ERRO AO SALVAR', error);
+        toast.error('Erro ao salvar!')
       });
   };
 
@@ -61,7 +60,10 @@ const ReviewForm = ({ movieId, onInsertReview }: Props) => {
               placeholder="Deixe sua avaliação aqui"
             />
             <div className='invalid-feedback d-block'>
-              {errors.text?.message}              
+             {errors.text?.message}
+              <div className='reviewform-toast'>
+                {errors.text?.message ? toast.error('Favor colocar uma avaliação') : ''}               
+              </div>
             </div>
           </div>
           <div className="btn-review">

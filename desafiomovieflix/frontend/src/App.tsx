@@ -13,7 +13,7 @@ const App = () => {
   return (
     <AuthContext.Provider value={{ authContextData, setAuthContextData }} >
       <Routes />
-      <ToastContainer />
+      <ToastContainer autoClose={8000} limit={1} />
     </AuthContext.Provider>
   );
 }
